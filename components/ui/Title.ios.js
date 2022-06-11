@@ -16,6 +16,7 @@ const styles = StyleSheet.create({
     borderColor: "white",
     padding: 12,
     // borderRadius: Platform.OS === "android" ? 0 : 16,
-    borderRadius: Platform.select({ ios: 16, android: 0 }),
+    // borderRadius: Platform.select({ ios: 16, android: 0 }),
+    borderRadius: 16,
   },
 });
