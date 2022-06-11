@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { StyleSheet, View, ImageBackground, SafeAreaView } from "react-native";
 import { useFonts } from "expo-font";
+import { StatusBar } from "expo-status-bar";
 
 import GameScreen from "./screens/GameScreen";
 import StartGameScreen from "./screens/StartGameScreen";
@@ -58,16 +59,19 @@ export default function App() {
   }
 
   return (
-    <View style={styles.rootScreen}>
-      <ImageBackground
-        source={require("./assets/images/background.png")}
-        resizeMode="cover"
-        style={styles.rootScreen}
-        imageStyle={styles.imageBackground}
-      >
-        <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </View>
+    <>
+      <StatusBar style="light" />
+      <View style={styles.rootScreen}>
+        <ImageBackground
+          source={require("./assets/images/background.png")}
+          resizeMode="cover"
+          style={styles.rootScreen}
+          imageStyle={styles.imageBackground}
+        >
+          <SafeAreaView style={styles.rootScreen}>{screen}</SafeAreaView>
+        </ImageBackground>
+      </View>
+    </>
   );
 }
 
