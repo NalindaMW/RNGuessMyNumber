@@ -1,25 +1,34 @@
-import { View, Image, StyleSheet, Text, Dimensions } from "react-native";
+import {
+  View,
+  Image,
+  StyleSheet,
+  Text,
+  Dimensions,
+  ScrollView,
+} from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import Title from "../components/ui/Title";
 import Colors from "../utils/colors";
 
 function GameOverScreen({ roundsNumber, userNumber, onStartNewGame }) {
   return (
-    <View style={styles.rootContainer}>
-      <Title>Game IS Over!</Title>
-      <View style={styles.imageContainer}>
-        <Image
-          style={styles.image}
-          source={require("../assets/images/success.png")}
-        />
+    <ScrollView>
+      <View style={styles.rootContainer}>
+        <Title>Game IS Over!</Title>
+        <View style={styles.imageContainer}>
+          <Image
+            style={styles.image}
+            source={require("../assets/images/success.png")}
+          />
+        </View>
+        <Text style={styles.summaryText}>
+          Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
+          rounds to guess the number{" "}
+          <Text style={styles.highlight}>{userNumber}</Text>
+        </Text>
+        <PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>
       </View>
-      <Text style={styles.summaryText}>
-        Your phone needed <Text style={styles.highlight}>{roundsNumber}</Text>{" "}
-        rounds to guess the number{" "}
-        <Text style={styles.highlight}>{userNumber}</Text>
-      </Text>
-      <PrimaryButton onPress={onStartNewGame}>Start New Game</PrimaryButton>
-    </View>
+    </ScrollView>
   );
 }
 
